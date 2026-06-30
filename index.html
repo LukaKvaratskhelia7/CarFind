@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CarFind — იპოვე შენი მანქანა</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Nav overlay (mobile) -->
+  <div class="nav-overlay" id="navOverlay"></div>
+
+  <!-- ========== COOKIES ========== -->
+  <div class="cookie-bar" id="cookieBar">
+    <div class="cookie-inner">
+      <span>🍪 ვიყენებთ cookies საიტის გამოცდილების გასაუმჯობესებლად.</span>
+      <div class="cookie-actions">
+        <button class="cookie-btn cookie-decline" id="cookieDecline">უარყოფა</button>
+        <button class="cookie-btn cookie-accept" id="cookieAccept">მივიღე</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-container">
+      <a href="#" class="logo">
+        <span class="logo-icon">◈</span>
+        Car<span class="logo-accent">Find</span>
+      </a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#catalog" class="nav-link">კატალოგი</a></li>
+        <li><a href="#filter" class="nav-link">ფილტრი</a></li>
+        <li><a href="#top-picks" class="nav-link">Top Picks</a></li>
+        <li><a href="#about" class="nav-link">ჩვენ შესახებ</a></li>
+        <li><a href="#contact" class="nav-link">კონტაქტი</a></li>
+      </ul>
+
+      <button class="burger" id="burgerBtn" aria-label="მენიუ">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <div class="hero-glow"></div>
+        <div class="hero-grid"></div>
+      </div>
+
+      <div class="hero-content">
+        <p class="hero-eyebrow">Premium Auto Discovery</p>
+        <h1 class="hero-title">
+          იპოვე მანქანა,<br />
+          <span class="hero-title-accent">რომელიც შენია.</span>
+        </h1>
+        <p class="hero-subtitle">
+          მილიონობით მოდელი. ერთი სწორი არჩევანი.
+          ფილტრი, შეადარე, გადაწყვიტე.
+        </p>
+
+        <div class="hero-search">
+          <input type="text" id="heroSearch" class="hero-input"
+            placeholder="მარკა ან მოდელი — მაგ. Toyota, BMW..." />
+          <button class="hero-btn" id="heroSearchBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            ძებნა
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat"><strong>500+</strong><span>მარკა</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>10,000+</strong><span>მოდელი</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><strong>უფასო</strong><span>სარგებლობა</span></div>
+        </div>
+      </div>
+
+      <div class="hero-car">
+        <div class="car-silhouette">
+          <svg viewBox="0 0 800 300" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="carGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#e8b84b;stop-opacity:0.9"/>
+                <stop offset="50%" style="stop-color:#fff;stop-opacity:0.95"/>
+                <stop offset="100%" style="stop-color:#e8b84b;stop-opacity:0.7"/>
+              </linearGradient>
+              <filter id="glow">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              </filter>
+            </defs>
+            <path d="M80 200 Q100 200 120 185 L200 140 Q260 105 340 100 L460 100 Q540 100 590 130 L660 170 Q700 185 720 200 L720 220 Q700 235 80 235 Z" fill="url(#carGrad)" filter="url(#glow)" opacity="0.92"/>
+            <path d="M220 140 Q280 95 360 88 L450 88 Q520 88 570 125 L640 165" fill="none" stroke="url(#carGrad)" stroke-width="3" opacity="0.7"/>
+            <path d="M235 138 Q265 108 320 100 L390 100 L380 138 Z" fill="#0a0a1a" opacity="0.6"/>
+            <path d="M385 100 L450 100 Q490 100 520 120 L510 138 L385 138 Z" fill="#0a0a1a" opacity="0.6"/>
+            <circle cx="200" cy="228" r="38" fill="#111" stroke="#e8b84b" stroke-width="3"/>
+            <circle cx="200" cy="228" r="22" fill="#1a1a2e" stroke="#e8b84b" stroke-width="2"/>
+            <circle cx="200" cy="228" r="8" fill="#e8b84b"/>
+            <circle cx="600" cy="228" r="38" fill="#111" stroke="#e8b84b" stroke-width="3"/>
+            <circle cx="600" cy="228" r="22" fill="#1a1a2e" stroke="#e8b84b" stroke-width="2"/>
+            <circle cx="600" cy="228" r="8" fill="#e8b84b"/>
+            <ellipse cx="715" cy="188" rx="15" ry="8" fill="#e8b84b" opacity="0.9" filter="url(#glow)"/>
+            <path d="M150 175 Q400 155 650 175" stroke="white" stroke-width="1.5" opacity="0.3" fill="none"/>
+          </svg>
+        </div>
+        <div class="car-shadow"></div>
+      </div>
+    </section>
+
+    <!-- ========== FILTER ========== -->
+    <section class="filter-section" id="filter">
+      <div class="container">
+        <div class="section-label">ფილტრაცია</div>
+        <h2 class="section-title">მოარგე ძებნა შენს გემოვნებას</h2>
+
+        <div class="filter-grid">
+          <div class="filter-group">
+            <label class="filter-label" for="filterMake">მარკა</label>
+            <input type="text" id="filterMake" class="filter-input" placeholder="მაგ. Toyota" />
+          </div>
+          <div class="filter-group">
+            <label class="filter-label" for="filterModel">მოდელი</label>
+            <input type="text" id="filterModel" class="filter-input" placeholder="მაგ. Camry" />
+          </div>
+          <div class="filter-group">
+            <label class="filter-label" for="filterYear">წელი (დან)</label>
+            <input type="number" id="filterYear" class="filter-input" placeholder="მაგ. 2018" min="1990" max="2025" />
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">საწვავი</label>
+            <div class="multiselect" id="fuelMultiselect">
+              <button class="ms-option active" data-value="gas">⛽ ბენზინი</button>
+              <button class="ms-option active" data-value="diesel">🛢 დიზელი</button>
+              <button class="ms-option" data-value="electric">⚡ ელექტრო</button>
+              <button class="ms-option" data-value="hybrid">🌿 ჰიბრიდი</button>
+            </div>
+          </div>
+          <div class="filter-group">
+            <label class="filter-label">ტრანსმისია</label>
+            <div class="multiselect" id="transMultiselect">
+              <button class="ms-option active" data-value="a">🔄 ავტომატი</button>
+              <button class="ms-option active" data-value="m">🕹 მექანიკა</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-actions">
+          <button class="search-btn" id="searchBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            მოძებნე მანქანები
+          </button>
+          <button class="clear-btn" id="clearBtn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            გასუფთავება
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CATALOG ========== -->
+    <section class="catalog-section" id="catalog">
+      <div class="container">
+        <div class="section-label">კატალოგი</div>
+        <h2 class="section-title">ნაპოვნი შედეგები</h2>
+        <p class="section-sub" id="resultsCount">ძებნის დასაწყებად შეავსე ფილტრი ↑</p>
+
+        <div class="cars-grid" id="carsGrid">
+          <div class="empty-state">
+            <div class="empty-icon">🚗</div>
+            <p>შეიყვანე მარკა ან გამოიყენე ფილტრი</p>
+          </div>
+        </div>
+
+        <div class="loader hidden" id="loader">
+          <div class="loader-ring"></div>
+          <span>ვეძებთ მანქანებს...</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TOP PICKS ========== -->
+    <section class="top-picks" id="top-picks">
+      <div class="container">
+        <div class="section-label">რედაქციის არჩევანი</div>
+        <h2 class="section-title">Top Picks 2024</h2>
+        <p class="section-sub">ჩვენი გუნდის მიერ შერჩეული საუკეთესო მოდელები</p>
+        <div class="picks-grid" id="picksGrid"></div>
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="about-section" id="about">
+      <div class="container about-layout">
+        <div class="about-text">
+          <div class="section-label">ჩვენ შესახებ</div>
+          <h2 class="section-title">CarFind — შენი სანდო გზამკვლელი</h2>
+          <p class="about-desc">
+            მანქანის შეძენა ერთ-ერთი ყველაზე მნიშვნელოვანი გადაწყვეტილებაა.
+            CarFind გეხმარება ამ პროცესში — სრული ინფორმაციით, ობიექტური
+            შედარებით და მარტივი ინტერფეისით.
+          </p>
+          <p class="about-desc">
+            ჩვენი მონაცემთა ბაზა მოიცავს ათასობით მანქანის სპეციფიკაციას,
+            დამწყებთათვის განმარტებებიდან დაწყებული პროფესიონალური ანალიზამდე.
+          </p>
+          <div class="about-features">
+            <div class="feature-item">
+              <span class="feature-icon">⚡</span>
+              <div><strong>სწრაფი ძებნა</strong><p>შედეგები მყისიერად</p></div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">🎯</span>
+              <div><strong>ზუსტი ფილტრი</strong><p>პარამეტრებით დახარისხება</p></div>
+            </div>
+            <div class="feature-item">
+              <span class="feature-icon">📊</span>
+              <div><strong>სრული სპეკ</strong><p>ძრავი, მოხმარება, ტრანსმისია</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="about-visual">
+          <div class="visual-card">
+            <div class="vc-number">98%</div>
+            <div class="vc-label">მომხმარებელი კმაყოფილი</div>
+          </div>
+          <div class="visual-card vc-offset">
+            <div class="vc-number">10K+</div>
+            <div class="vc-label">მოდელი ბაზაში</div>
+          </div>
+          <div class="visual-card">
+            <div class="vc-number">500+</div>
+            <div class="vc-label">მარკა</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+        <div class="section-label">კონტაქტი</div>
+        <h2 class="section-title">გაქვს კითხვა?</h2>
+        <p class="section-sub">დაგვიკავშირდი — გიპასუხებთ 24 საათში</p>
+        <div class="contact-cards">
+          <a href="mailto:hello@carfind.ge" class="contact-card">
+            <span class="cc-icon">📧</span>
+            <strong>ელ-ფოსტა</strong>
+            <span>hello@carfind.ge</span>
+          </a>
+          <a href="tel:+995555000111" class="contact-card">
+            <span class="cc-icon">📞</span>
+            <strong>ტელეფონი</strong>
+            <span>+995 555 000 111</span>
+          </a>
+          <div class="contact-card">
+            <span class="cc-icon">📍</span>
+            <strong>მისამართი</strong>
+            <span>თბილისი, ჭავჭავაძის 45</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <span class="logo-icon">◈</span>
+          Car<span class="logo-accent">Find</span>
+        </a>
+        <p>შენი სანდო ავტო-გზამკვლელი</p>
+      </div>
+      <div class="footer-links">
+        <a href="#catalog">კატალოგი</a>
+        <a href="#filter">ფილტრი</a>
+        <a href="#about">ჩვენ შესახებ</a>
+        <a href="#contact">კონტაქტი</a>
+      </div>
+      <div class="footer-copy">
+        <p>© 2024 CarFind. ყველა უფლება დაცულია.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button class="scroll-top" id="scrollTop" aria-label="ზევით">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m18 15-6-6-6 6"/></svg>
+  </button>
+
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="main.js"></script>
+</body>
+</html>
